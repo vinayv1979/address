@@ -7,6 +7,9 @@
 	<artifactId>address</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule-application</packaging>
+    
+    
+    
 
 	<name>address</name>
 
@@ -82,7 +85,7 @@
 						<armDeployment>
 							<muleVersion>4.1.5</muleVersion>
 							<uri>https://anypoint.mulesoft.com</uri>
-							<target>Vinay-Local</target>
+							<target>aws-scot-gov-mule-poc</target>
 							<targetType>server</targetType>
 							<username>vinayv</username>
 							<password>Dondu104</password>
