@@ -85,7 +85,8 @@
 						<armDeployment>
 							<muleVersion>4.1.5</muleVersion>
 							<uri>https://anypoint.mulesoft.com</uri>
-							<target>aws-scot-gov-mule-poc</target>
+							<target>Vinay-Local</target>
+
 							<targetType>server</targetType>
 							<username>vinayv</username>
 							<password>Dondu104</password>
