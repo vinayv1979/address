@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="postcode" format="java">
+      <types:shape format="raml"><![CDATA[#%RAML 1.0 DataType
+type: string]]></types:shape>
+    </types:type>
+    <types:type name="response" format="json">
+      <types:shape format="weave" example="examples/run.json"><![CDATA[%dw 2.0
+type response = {|
+  result: Array<{|
+    postcode: String, 
+    postcode_inward: String, 
+    postcode_outward: String, 
+    post_town: String, 
+    dependant_locality: String, 
+    double_dependant_locality: String, 
+    thoroughfare: String, 
+    dependant_thoroughfare: String, 
+    building_number: String, 
+    building_name: String, 
+    sub_building_name: String, 
+    po_box: String, 
+    department_name: String, 
+    organisation_name: String, 
+    udprn: Number {"typeId": "int"}, 
+    umprn: String, 
+    postcode_type: String, 
+    su_organisation_indicator: String, 
+    delivery_point_suffix: String, 
+    line_1: String, 
+    line_2: String, 
+    line_3: String, 
+    premise: String, 
+    longitude: Number {"typeId": "double"}, 
+    latitude: Number {"typeId": "double"}, 
+    eastings: Number {"typeId": "int"}, 
+    northings: Number {"typeId": "int"}, 
+    country: String, 
+    traditional_county: String, 
+    administrative_county: String, 
+    postal_county: String, 
+    county: String, 
+    district: String, 
+    ward: String
+  |}>
+|} {"MetadataFormat": "json",
+"example": "{\"result\":[{\"postcode\":\"G3 8JF\",\"postcode_inward\":\"8JF\",\"postcode_outward\":\"G3\",\"post_town\":\"GLASGOW\",\"dependant_locality\":\"\",\"double_dependant_locality\":\"\",\"thoroughfare\":\"Lancefield Quay\",\"dependant_thoroughfare\":\"\",\"building_number\":\"72\",\"building_name\":\"\",\"sub_building_name\":\"2\/1\",\"po_box\":\"\",\"department_name\":\"\",\"organisation_name\":\"\",\"udprn\":9259735,\"umprn\":\"\",\"postcode_type\":\"S\",\"su_organisation_indicator\":\"\",\"delivery_point_suffix\":\"1B\",\"line_1\":\"2\/1\",\"line_2\":\"72 Lancefield Quay\",\"line_3\":\"\",\"premise\":\"2\/1, 72\",\"longitude\":-4.275123,\"latitude\":55.857257,\"eastings\":257691,\"northings\":665015,\"country\":\"Scotland\",\"traditional_county\":\"Lanarkshire\",\"administrative_county\":\"\",\"postal_county\":\"Lanarkshire\",\"county\":\"Lanarkshire\",\"district\":\"Glasgow City\",\"ward\":\"Anderston\/City\/Yorkhill\"}]}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#a8cc7728-899d-4487-9805-6b72e0c10f17">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:variables>
+          <types:variable name="postcode" type="postcode"/>
+        </types:variables>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#84f25a0c-3760-4b95-ae91-651e7e49ab61">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="postcode"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#1b7dfcf0-4f34-457c-9cea-6dcbb6fb0a8f">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="response"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

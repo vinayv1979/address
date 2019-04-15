@@ -1,0 +1,18 @@
+#%RAML 1.0
+title: Address lookup
+/address:
+  /{postcode}:
+    description: Return Address information on basis of Postcode
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include response.json 
+              
+             
+
+         
+            
+             
+  
