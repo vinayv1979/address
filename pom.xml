@@ -90,6 +90,7 @@
 							<username>vinayv</username>
 							<password>Dondu104</password>
 							<environment>PreProd</environment>
+							<redeploy>true</redeploy>
 						</armDeployment>
 					</configuration>
 				
